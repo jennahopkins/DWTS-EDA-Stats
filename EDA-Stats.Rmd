@@ -1,0 +1,23 @@
+---
+title: "DWTS EDA/Stats"
+author: "Jenna Hopkins"
+date: "2025-10-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+dwts_ds = read_csv("JudgeScores.csv")
+
+```
+
+```{r}
+dwts_ds %>%
+  filter(!is.na(`Carrie Ann Inaba Score`)) %>%
+  ggplot(aes(x = Week, y = `Carrie Ann Inaba Score`)) +
+  geom_point(position = "jitter") +
+  theme_bw()
+  
+```
+
